@@ -16,8 +16,8 @@ const Form = () => {
     /**
      * state for each field of the form -> define empty and update onChange on field with the set
      */
-    const [firstname, setFirstname] = useState("")
-    const [lastname, setLastname] = useState("")
+    const [firstName, setFirstname] = useState("")
+    const [lastName, setLastname] = useState("")
     const [dateOfBirth, setDateOfBirth] = useState("")
     const [startDate, setStartDate] = useState("")
     const [street, setStreet] = useState("")
@@ -33,8 +33,8 @@ const Form = () => {
      * Object newEmployee with all fields (get onChange in each fields, with the state)
      */
     const newEmployee = {
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         startDate,
         department,
         dateOfBirth,

@@ -61,41 +61,64 @@ const DataTables = ({ labels, data }) => {
 //       });
 //     }
 const handleSort = (label) => {
-    if (sort.column === label) {
-      setSort({
-        ...sort,
-        isDesc: !sort.isDesc,
-      });
-    } else {
-      setSort({
-        column: label,
-        isDesc: false,
-      });
-    }
-  
-    const sorted = sorting(label);
-    setSortedData(sorted);
+  const newSort = {
+    column: label,
+    isDesc: sort.column === label ? !sort.isDesc : false,
   };
+console.log("newSort:", newSort)
+  setSort(newSort);
+
+  const sorted = sorting(label, newSort.isDesc);
+  setSortedData(sorted); 
+};
+
   
-  // Sorting system based on label
-  const sorting = (label) => {
-    const sorted = sortedData.slice().sort((a, b) => {
-      const labelA = normalizeText(a[label]);
-      const labelB = normalizeText(b[label]);
-  
-      if (sort.isDesc) {
-        if (labelA < labelB) return -1;
-        if (labelA > labelB) return 1;
-      } else {
-        if (labelA < labelB) return 1;
-        if (labelA > labelB) return -1;
-      }
-  
+const sorting = (label, isDesc) => {
+  const sorted = data.slice().sort((a, b) => {
+
+    console.log("Sorting by property:", label);
+
+
+    if (!a.hasOwnProperty(label) || !b.hasOwnProperty(label)) {
+      console.log("One of the properties is undefined");
       return 0;
-    });
-  
-    return sorted;
-  };
+    }
+
+
+    const labelA = normalizeText(a[label]);
+    const labelB = normalizeText(b[label]);
+
+    console.log("labelA:", labelA);
+    console.log("labelB:", labelB);
+
+    if (labelA === undefined || labelB === undefined) {
+      console.log("One of the normalized values is undefined");
+      return 0;
+    }
+
+    if (isDesc) {
+      if (labelA < labelB) return -1;
+      if (labelA > labelB) return 1;
+    } else {
+      if (labelA < labelB) return 1;
+      if (labelA > labelB) return -1;
+    }
+
+    return 0;
+  });
+
+  console.log("sorted:", sorted);
+
+  return sorted;
+};
+
+
+
+
+
+
+
+
 
   return (
     <div className="dtb">
