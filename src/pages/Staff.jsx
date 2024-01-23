@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import Table from '../components/Table';
 
 /**
  * The page with all the employees
@@ -12,6 +12,7 @@ const Employee = () => {
 
     return (
         <div>
+             <Table listOfEmployees={listOfEmployees} />
            PAGE EMPLOYEE
         </div>
     );

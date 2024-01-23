@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from '../components/Forms';
 
 
 /**
@@ -8,7 +9,10 @@ import React from 'react';
 const Home = () => {
     return (
         <div className='Home'>
-COUCOU
+             <div className='Home'>
+            <Form />
+        </div>
+
         </div>
     );
 };
