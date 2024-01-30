@@ -9,8 +9,8 @@ import List from "../data/List.json";
  * @returns {JSX} - React Page
  */
 const Employee = () => {
-   // const listOfEmployees = useSelector((state) => state?.employee?.listOfEmployees)
-    const listOfEmployees = List;
+    const listOfEmployees = useSelector((state) => state?.employee?.listOfEmployees)
+   // const listOfEmployees = List;
     return (
         <div>
              <Table listOfEmployees={listOfEmployees} />
