@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Modal from 'fast-modal-library';
 import stateData from '../data/stateData';
 import departmentData from '../data/departementData';
 import { useDispatch } from 'react-redux';
 import { addEmployee } from '../feature/employe.slice';
-import  Modal from './Modal';
+//import  Modal from './Modal';
 
 /**
  * form component for create a new employee and add data in redux

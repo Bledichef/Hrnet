@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Table from '../components/Table';
+import List from "../data/List.json";
 
 /**
  * The page with all the employees
@@ -8,8 +9,8 @@ import Table from '../components/Table';
  * @returns {JSX} - React Page
  */
 const Employee = () => {
-    const listOfEmployees = useSelector((state) => state?.employee?.listOfEmployees)
-
+   // const listOfEmployees = useSelector((state) => state?.employee?.listOfEmployees)
+    const listOfEmployees = List;
     return (
         <div>
              <Table listOfEmployees={listOfEmployees} />
