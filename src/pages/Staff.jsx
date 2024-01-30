@@ -14,7 +14,7 @@ const Employee = () => {
     return (
         <div>
              <Table listOfEmployees={listOfEmployees} />
-           PAGE EMPLOYEE
+           
         </div>
     );
 };
